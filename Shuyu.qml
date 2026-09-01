@@ -45,13 +45,13 @@ BarWidget {
   }
 
   function toggleIME() {
-    if (!root.bar) return
+    if (!root.bar || root.imState === 0) return
     root.bar.run("fcitx5-remote -t")
     settleTimer.restart()
   }
 
   function cycleSchema() {
-    if (!root.bar) return
+    if (!root.bar || root.imState === 0) return
     var next = root.schemaId === root.quanpinId ? root.shuangpinId : root.quanpinId
     root.bar.run("dbus-send --session --type=method_call --dest=org.fcitx.Fcitx5 "
       + "/rime org.fcitx.Fcitx.Rime1.SetSchema string:" + next)
@@ -63,10 +63,15 @@ BarWidget {
   Process {
     id: stateProc
     command: ["/bin/sh", "-c", [
+      // 先 pgrep 判断 fcitx5 是否运行:fcitx5-remote/dbus-send 对未运行的
+      // org.fcitx.Fcitx5 发起调用会触发 DBus 激活服务拉起游离实例,
+      // 抢走 DBus 名导致 systemd 单元的实例无限重启循环
+      "if pgrep -x fcitx5 >/dev/null 2>&1; then",
       "fcitx5-remote",
       "fcitx5-remote -n",
       "dbus-send --session --type=method_call --print-reply=literal --dest=org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1.GetCurrentSchema",
-      "dbus-send --session --type=method_call --print-reply=literal --dest=org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1.IsAsciiMode"
+      "dbus-send --session --type=method_call --print-reply=literal --dest=org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1.IsAsciiMode",
+      "else echo 0; echo; echo; echo; fi"
     ].join("; echo; ")]
     onRunningChanged: {
       if (running) {
