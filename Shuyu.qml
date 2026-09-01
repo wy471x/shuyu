@@ -28,7 +28,7 @@ BarWidget {
   readonly property bool chineseOn: imState === 2 && imName === "rime" && !asciiMode
   readonly property string label: chineseOn ? (schemaId === quanpinId ? "全" : "漱") : "EN"
   readonly property string tooltip: {
-    if (imState === 0) return "漱玉 Shuyu\nfcitx5 未运行"
+    if (imState === 0) return "漱玉 Shuyu\nfcitx5 运行中 · 点击输入框后激活"
     if (imState !== 2) return "漱玉 Shuyu\n当前：英文\n左键切换中文 · 右键切换方案"
     if (asciiMode) return "漱玉 Shuyu\n当前：西文模式\n左键切换中文 · 右键切换方案"
     return "漱玉 Shuyu\n当前：" + (schemaId === quanpinId ? "漱玉·全拼" : "漱玉 · 自然码双拼")
