@@ -52,7 +52,7 @@ rime_deployer --build ~/.local/share/fcitx5/rime /usr/share/rime-data
 | 操作 | 方式 |
 |---|---|
 | 中英文切换 | 左键点击状态栏「漱/EN」,或 Ctrl+Space |
-| 双拼 / 全拼切换 | 右键或滚轮状态栏组件,或 Ctrl+Shift+1(双拼)/ Ctrl+Shift+2(全拼) |
+| 双拼 / 全拼切换 | 右键或滚轮状态栏组件,或 Ctrl+Alt+1(双拼)/ Ctrl+Alt+2(全拼) |
 | 方案菜单 | Ctrl+` 或 F4 |
 | 笔画反查 | ` + 笔画(hspnz = 一丨丿丶乙) |
 

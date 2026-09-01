@@ -32,7 +32,7 @@ BarWidget {
     if (imState !== 2) return "漱玉 Shuyu\n当前：英文\n左键切换中文 · 右键切换方案"
     if (asciiMode) return "漱玉 Shuyu\n当前：西文模式\n左键切换中文 · 右键切换方案"
     return "漱玉 Shuyu\n当前：" + (schemaId === quanpinId ? "漱玉·全拼" : "漱玉 · 自然码双拼")
-      + "\n左键：中/英 · 右键/滚轮：切换方案\n快捷键：Ctrl+Shift+1 双拼 / Ctrl+Shift+2 全拼"
+      + "\n左键：中/英 · 右键/滚轮：切换方案\n快捷键：Ctrl+Alt+1 双拼 / Ctrl+Alt+2 全拼"
   }
 
   function refresh() {

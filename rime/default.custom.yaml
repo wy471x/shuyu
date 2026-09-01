@@ -2,8 +2,10 @@
 # encoding: utf-8
 #
 # 啟用漱玉方案列表，並追加方案切換快捷鍵：
-#   Ctrl+Shift+1 → 漱玉（自然碼雙拼）
-#   Ctrl+Shift+2 → 漱玉·全拼
+#   Ctrl+Alt+1 → 漱玉（自然碼雙拼）
+#   Ctrl+Alt+2 → 漱玉·全拼
+# 注意：Ctrl+Shift+1/2 與 rime 預設綁定（.next/ascii_mode）衝突，
+# 且 Ctrl+Shift 是 fcitx5 全域觸發鍵，按鍵不會到達 rime，故改用 Ctrl+Alt。
 # 亦可經 Ctrl+` / F4 方案選單切換。
 patch:
   schema_list:
@@ -16,5 +18,5 @@ patch:
       - ascii_punct
       - simplification
   "key_binder/bindings/+":
-    - { when: always, accept: Control+Shift+1, select: shuyu }
-    - { when: always, accept: Control+Shift+2, select: shuyu_pinyin }
+    - { when: always, accept: Control+Alt+1, select: shuyu }
+    - { when: always, accept: Control+Alt+2, select: shuyu_pinyin }
