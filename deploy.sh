@@ -57,7 +57,9 @@ install() {
     systemctl --user stop omarchy-fcitx5.service
     echo "  → 已停止 omarchy-fcitx5.service"
   fi
-  pkill -x fcitx5 2>/dev/null || true
+  # SIGKILL 杀死游离实例（如桌面会话自行启动的 fcitx5）：
+  # 不给它优雅退出存盘的机会，避免用内存状态覆盖刚写入的 profile
+  pkill -9 -x fcitx5 2>/dev/null || true
   sleep 1
 
   mkdir -p "$RIME_USER" "$THEMES_DIR" "$FCITX_CONF/conf"
