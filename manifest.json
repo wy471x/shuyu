@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.wy471x.shuyu",
+  "name": "漱玉 Shuyu",
+  "version": "1.0.0",
+  "author": "wy471x",
+  "description": "漱玉输入法状态：fcitx5/rime 中英切换与双拼/全拼方案指示",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Shuyu.qml"
+  },
+  "barWidget": {
+    "displayName": "漱玉 Shuyu",
+    "description": "漱玉输入法状态：左键中英切换，右键/滚轮切换漱玉双拼与全拼方案",
+    "category": "Status",
+    "allowMultiple": false
+  }
+}

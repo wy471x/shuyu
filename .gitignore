@@ -1,0 +1,9 @@
+# rime 编译产物(部署后生成于 ~/.local/share/fcitx5/rime/build/,不应入库)
+*.bin
+*.table
+*.prism
+*.reverse.bin
+*.userdb
+*.userdb.txt
+*.userdb.kct
+build/

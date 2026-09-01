@@ -1,0 +1,57 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 漱玉詞庫 —— 語彙取自李清照《漱玉詞》及唐宋詩詞意象。
+# 編碼為全拼（ü → v），由「漱玉」雙拼與「漱玉·全拼」兩方案共用；
+# 雙拼按鍵由 speller algebra 自動換算回全拼碼查詞。
+---
+name: shuyu
+version: "2026.09.01"
+sort: by_weight
+import_tables:
+  - luna_pinyin
+...
+
+漱玉	shu yu	100000
+漱石	shu shi	50000
+枕流	zhen liu	50000
+清泉	qing quan	40000
+明月	ming yue	40000
+松风	song feng	40000
+竹影	zhu ying	40000
+疏影	shu ying	40000
+暗香	an xiang	40000
+鹤鸣	he ming	30000
+兰亭	lan ting	30000
+烟雨	yan yu	30000
+关雎	guan ju	30000
+采薇	cai wei	30000
+桃夭	tao yao	30000
+蒹葭	jian jia	30000
+白露	bai lu	30000
+流萤	liu ying	30000
+落霞	luo xia	30000
+孤舟	gu zhou	30000
+秋水	qiu shui	30000
+惊鸿	jing hong	30000
+长歌	chang ge	30000
+未央	wei yang	30000
+绿肥红瘦	lv fei hong shou	30000
+人比黄花瘦	ren bi huang hua shou	30000
+如梦令	ru meng ling	30000
+声声慢	sheng sheng man	30000
+一剪梅	yi jian mei	30000
+水调歌头	shui diao ge tou	30000
+满江红	man jiang hong	30000
+青玉案	qing yu an	30000
+蝶恋花	die lian hua	30000
+浣溪沙	huan xi sha	30000
+忆江南	yi jiang nan	30000
+鹧鸪天	zhe gu tian	30000
+永遇乐	yong yu le	30000
+卜算子	bu suan zi	30000
+行香子	xing xiang zi	30000
+念奴娇	nian nu jiao	30000
+浪淘沙	lang tao sha	30000
+踏莎行	ta suo xing	30000
+鹊桥仙	que qiao xian	30000
