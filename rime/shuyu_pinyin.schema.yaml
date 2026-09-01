@@ -64,6 +64,9 @@ speller:
 
 translator:
   dictionary: shuyu
+  # 必须显式声明独立 prism:否则回退用双拼方案的 shuyu.prism.bin(自然码键位映射),
+  # 全拼按键会被按双拼规则错配,导致打不出字
+  prism: shuyu_pinyin
   preedit_format:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
