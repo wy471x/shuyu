@@ -51,6 +51,15 @@ EOF
 
 install() {
   echo "漱玉 Shuyu —— 部署到 fcitx5 用户目录"
+
+  # 先停止 fcitx5：否则它退出时会用内存状态覆盖刚写入的 profile
+  if command -v systemctl >/dev/null && systemctl --user is-active --quiet omarchy-fcitx5.service 2>/dev/null; then
+    systemctl --user stop omarchy-fcitx5.service
+    echo "  → 已停止 omarchy-fcitx5.service"
+  fi
+  pkill -x fcitx5 2>/dev/null || true
+  sleep 1
+
   mkdir -p "$RIME_USER" "$THEMES_DIR" "$FCITX_CONF/conf"
 
   for f in "${RIME_FILES[@]}"; do

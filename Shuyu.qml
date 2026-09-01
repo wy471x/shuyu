@@ -82,7 +82,7 @@ BarWidget {
         var lines = String(text || "").split("\n")
         root.imState = parseInt(lines[0], 10) || 0
         root.imName = String(lines[1] || "").trim()
-        root.schemaId = String(lines[2] || "").replace(/^string\s*/, "").trim()
+        root.schemaId = String(lines[2] || "").replace(/^string\s*"?/, "").replace(/"$/, "").trim()
         root.asciiMode = String(lines[3] || "").indexOf("true") !== -1
       }
     }
