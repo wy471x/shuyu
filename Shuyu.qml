@@ -67,7 +67,7 @@ BarWidget {
       "fcitx5-remote -n",
       "dbus-send --session --type=method_call --print-reply=literal --dest=org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1.GetCurrentSchema",
       "dbus-send --session --type=method_call --print-reply=literal --dest=org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1.IsAsciiMode"
-    ].join("; ")]
+    ].join("; echo; ")]
     onRunningChanged: {
       if (running) {
         stallTimer.restart()
@@ -82,7 +82,11 @@ BarWidget {
         var lines = String(text || "").split("\n")
         root.imState = parseInt(lines[0], 10) || 0
         root.imName = String(lines[1] || "").trim()
-        root.schemaId = String(lines[2] || "").replace(/^string\s*"?/, "").replace(/"$/, "").trim()
+        // dbus-send literal 输出不带类型前缀,但格式可能因版本而异,
+        // 直接按已知方案 id 匹配最稳妥
+        var rawSchema = String(lines[2] || "")
+        root.schemaId = rawSchema.indexOf(root.quanpinId) !== -1 ? root.quanpinId
+          : rawSchema.indexOf(root.shuangpinId) !== -1 ? root.shuangpinId : ""
         root.asciiMode = String(lines[3] || "").indexOf("true") !== -1
       }
     }
